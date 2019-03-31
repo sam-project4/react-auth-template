@@ -30,6 +30,9 @@ const alwaysOptions = changeActivePage => (
     <li className="nav-item" onClick={() => changeActivePage("home")}>
       <div className="nav-link">Home</div>
     </li>
+    <li className="nav-item" onClick={() => changeActivePage("one_product")}>
+      <div className="nav-link">one_product</div>
+    </li>
   </React.Fragment>
 );
 
