@@ -1,14 +1,12 @@
 import React, { Component } from "react";
 import apiUrl from "../apiConfig";
-import OneProduct from "./one_product";
 
-class Home extends Component {
+class OneProduct extends Component {
   state = {
     products: []
   };
-
   componentDidMount() {
-    let url = `${apiUrl}/api/products`;
+    let url = `${apiUrl}/api/product/${this.state.products.id}`;
 
     console.log(url);
     fetch(url, {
@@ -23,7 +21,8 @@ class Home extends Component {
       .then(data => {
         if (data.status > 299) this.setState({ err: data.message });
         else {
-          this.setState({ products: data.products });
+          console.log(data.product);
+          this.setState({ products: data.product });
         }
       })
       .catch(e => console.log(e));
@@ -32,17 +31,16 @@ class Home extends Component {
   render() {
     return (
       <div className="pt-5 mt-5">
-        <h1>Home</h1>
-        <label>Name</label>
-        {this.state.products.map((product, index) => (
-          <p key={index}>{product.name}</p>
-        ))}
-        {this.state.products.map((product, index) => (
-          <p key={index}>{product.image}</p>
-        ))}
-        {/* we need to put the number of bidding here, after we creating the bid table */}
+        <h1>{this.state.products.name}</h1>
+
+        <h2>Description</h2>
+        <p>{this.state.products.description}</p>
+        <h2>Image</h2>
+        <p>{this.state.products.image}</p>
+
+        {/* we need to put a textfeild, after we creating the bid table */}
       </div>
     );
   }
 }
-export default Home;
+export default OneProduct;
