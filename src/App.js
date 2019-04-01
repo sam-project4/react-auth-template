@@ -11,7 +11,8 @@ import OneProduct from "./components/one_product";
 class App extends Component {
   state = {
     user: null,
-    activePage: "home"
+    activePage: "home",
+    activeProduct: null
   };
   componentDidMount() {
     // check if we have a token in the local storage
@@ -20,6 +21,12 @@ class App extends Component {
       this.setState({ user });
     }
   }
+
+  changeActiveProduct = activeProduct => {
+    console.log("changing active product", activeProduct);
+    this.setState({ activeProduct });
+    this.changeActivePage("one_product");
+  };
 
   changeActivePage = activePage => {
     this.setState({ activePage });
@@ -44,7 +51,11 @@ class App extends Component {
         />
 
         <div className="container">
-          {activePage === "home" ? <Home /> : ""}
+          {activePage === "home" ? (
+            <Home changeActiveProduct={this.changeActiveProduct} />
+          ) : (
+            ""
+          )}
           {activePage === "sign-in" ? (
             <SigninForm onSignin={this.onSignin} />
           ) : (
@@ -61,7 +72,11 @@ class App extends Component {
             ""
           )}
           {activePage === "profile" ? <Profile /> : ""}
-          {activePage === "one_product" ? <OneProduct /> : ""}
+          {activePage === "one_product" ? (
+            <OneProduct product={this.state.activeProduct} />
+          ) : (
+            ""
+          )}
         </div>
       </div>
     );
