@@ -1,18 +1,21 @@
 import React, { Component } from "react";
-import apiUrl from "../../apiConfig";
-import { setUser } from "../../services/AuthService";
-class SignupForm extends Component {
-  state = {
-    formData: {
-      email: null,
-      password: null,
-      password_confirmation: null
-    },
-    err: null
-  };
 
-  handleLoginRequest = user => {
-    let url = `${apiUrl}/sign-up`;
+import apiUrl from "../../apiConfig";
+
+class Post extends Component {
+    state = {
+        formData: {
+            name: '',
+            description: '',
+            image: '',
+            owner_id:'',
+            close_bid:''
+
+          }
+        }
+
+ handleProductRequest = product => {
+    let url = `${apiUrl}/api/products`;
 
     fetch(url, {
       mode: "cors",
@@ -21,24 +24,28 @@ class SignupForm extends Component {
       headers: {
         "Content-type": "application/json"
       },
-      body: JSON.stringify({ credentials: user })
+      body: JSON.stringify({ product: product })
     })
       .then(res => res.json())
       .then(data => {
         if (data.status > 299) 
           this.setState({ err: data.message});
-        else {
-          setUser(data);
-          this.props.onSignin();
-        }
+          this.props.changeActivePage('home')
       })
       .catch(e => console.log(e));
   };
-  
+
+
   handleSubmit = e => {
     e.preventDefault();
-    this.handleLoginRequest(this.state.formData);
+    console.log(this.state.formData)
+    this.handleProductRequest(this.state.formData);
+     
+    
+    
+ 
   };
+
 
   handleChange = ({ currentTarget }) => {
     const formData = { ...this.state.formData };
@@ -49,39 +56,50 @@ class SignupForm extends Component {
   render() {
     return (
       <div className="pt-5 mt-5">
-        <h1>PLEASE SIGNUP</h1>
-        {this.state.err ? (
-          <div className="alert alert-warning"> {this.state.err} </div>
-        ) : (
-          ""
-        )}
+        <h1>Product</h1>
+        
         <form onSubmit={this.handleSubmit}>
           <div className="form-group">
-            <label>email </label>
+            <label>Name </label>
             <input
-              name="email"
+              name="name"
               className="form-control"
               onChange={this.handleChange}
             />
-            <label>Password</label>
+            <label>description</label>
             <input
-              name="password"
+              name="description"
               className="form-control"
-              type="password"
               onChange={this.handleChange}
             />
 
-            <label>Password Confirmation</label>
+            <label>image</label>
             <input
-              name="password_confirmation"
+              name="image"
               className="form-control"
-              type="password"
               onChange={this.handleChange}
+            />
+
+
+           <label>owner_id</label>
+            <input
+              name="owner_id"
+              className="form-control"
+              onChange={this.handleChange}
+              type="number"
+            />
+
+            <label>close_bid</label>
+            <input
+              name="close_bid"
+              className="form-control"
+              onChange={this.handleChange}
+              type="number"
             />
           </div>
 
           <button type="submit" className="btn btn-primary">
-            Login
+            submit
           </button>
         </form>
       </div>
@@ -89,4 +107,4 @@ class SignupForm extends Component {
   }
 }
 
-export default SignupForm;
+export default Post;

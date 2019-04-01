@@ -8,9 +8,14 @@ const authenticatedOptions = (changeActivePage, onSignout) => (
     >
       <div className="nav-link">Change Password</div>
     </li>
+    <li className="nav-item" onClick={() => changeActivePage("post")}>
+      <div className="nav-link">Add post</div>
+    </li>
+   
     <li className="nav-item" onClick={() => onSignout()}>
       <div className="nav-link">Sign Out</div>
     </li>
+  
   </React.Fragment>
 );
 
@@ -22,6 +27,7 @@ const unauthenticatedOptions = changeActivePage => (
     <li className="nav-item" onClick={() => changeActivePage("sign-up")}>
       <div className="nav-link">Sign Up</div>
     </li>
+   
   </React.Fragment>
 );
 
@@ -30,6 +36,7 @@ const alwaysOptions = changeActivePage => (
     <li className="nav-item" onClick={() => changeActivePage("home")}>
       <div className="nav-link">Home</div>
     </li>
+   
   </React.Fragment>
 );
 
