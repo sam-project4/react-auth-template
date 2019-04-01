@@ -6,7 +6,7 @@ class OneProduct extends Component {
     products: []
   };
   componentDidMount() {
-    let url = `${apiUrl}/api/product/${this.state.products.id}`;
+    let url = `${apiUrl}/api/product/${this.props.product.id}`;
 
     console.log(url);
     fetch(url, {

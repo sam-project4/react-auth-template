@@ -1,0 +1,12 @@
+body {
+  cursor: pointer;
+}
+
+.products {
+  border: 2px solid red;
+}
+
+.products:hover {
+  cursor: pointer;
+  background-color: aqua;
+}

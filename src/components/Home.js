@@ -33,13 +33,18 @@ class Home extends Component {
     return (
       <div className="pt-5 mt-5">
         <h1>Home</h1>
-        <label>Name</label>
+
         {this.state.products.map((product, index) => (
-          <p key={index}>{product.name}</p>
+          <div
+            className="products"
+            onClick={() => this.props.changeActiveProduct(product)}
+          >
+            <label>Name</label>
+            <p key={index}>{product.name ? product.name : "default"}</p>
+            <p key={index}>{product.image ? product.image : "default"}</p>
+          </div>
         ))}
-        {this.state.products.map((product, index) => (
-          <p key={index}>{product.image}</p>
-        ))}
+
         {/* we need to put the number of bidding here, after we creating the bid table */}
       </div>
     );
