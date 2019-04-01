@@ -8,11 +8,14 @@ import ChangePasswordForm from "./components/authForm.js/ChangePasswordForm";
 import Home from "./components/Home";
 import Profile from "./components/Profile";
 import OneProduct from "./components/one_product";
+import Post from "./components/authForm.js/Post";
+import Put from "./components/authForm.js/Put";
 class App extends Component {
   state = {
     user: null,
     activePage: "home",
-    activeProduct: null
+    activeProduct: null,
+    productId: undefined
   };
   componentDidMount() {
     // check if we have a token in the local storage
@@ -28,8 +31,11 @@ class App extends Component {
     this.changeActivePage("one_product");
   };
 
-  changeActivePage = activePage => {
-    this.setState({ activePage });
+  changeActivePage = (activePage, productId) => {
+    this.setState({ 
+      activePage: activePage,
+      productId: productId 
+    });
   };
   onSignin = () => {
     this.setState({ user: getUser() });
@@ -77,7 +83,11 @@ class App extends Component {
           ) : (
             ""
           )}
+          {activePage === "post" ? <Post changeActivePage={this.changeActivePage}/> : ""}
+          {activePage === "put" ? <Put id={this.state.productId} changeActivePage={this.changeActivePage}/> : ""}
+         
         </div>
+
       </div>
     );
   }

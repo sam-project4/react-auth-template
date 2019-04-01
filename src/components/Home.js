@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import apiUrl from "../apiConfig";
-import OneProduct from "./one_product";
 
 class Home extends Component {
   state = {
@@ -39,13 +38,15 @@ class Home extends Component {
             className="products"
             onClick={() => this.props.changeActiveProduct(product)}
           >
-            <label>Name</label>
-            <p key={index}>{product.name ? product.name : "default"}</p>
-            <p key={index}>{product.image ? product.image : "default"}</p>
+            <p key={index+' name'}> Name : {product.name}</p> 
+                  
+            <p key={index+' description'}> description: {product.description}</p>
+            <button key={index+' button'} onClick={() => this.props.changeActivePage('put', product.id)}>Edit</button>
+            <hr key={index+' hr'}/>
           </div>
         ))}
 
-        {/* we need to put the number of bidding here, after we creating the bid table */}
+       
       </div>
     );
   }
