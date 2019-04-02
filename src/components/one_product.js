@@ -1,6 +1,11 @@
 import React, { Component } from "react";
 import apiUrl from "../apiConfig";
+<<<<<<< HEAD
 import { getUser } from "../services/AuthService"
+=======
+import { getUser } from "../services/AuthService";
+
+>>>>>>> styled login page and home page and hide buttons
 class OneProduct extends Component {
   state = {
     products: [],
@@ -32,8 +37,13 @@ class OneProduct extends Component {
       .catch(e => console.log(e));
   }
 
+<<<<<<< HEAD
   handleProductRequest = product => {
     console.log("product\n\n\n" , product)
+=======
+
+  handleProductRequest = product => {
+>>>>>>> styled login page and home page and hide buttons
     let url = `${apiUrl}/api/products/${this.props.product.id}`;
 
     fetch(url, {
@@ -57,8 +67,8 @@ class OneProduct extends Component {
 
   handleBidRequest = product => {
     console.log("product\n\n\n" , this.props.product.id , this.state.formData.bid , getUser().id)
-    let url = `${apiUrl}/api/products/${this.props.product.id}/bid`;
-  
+    // let url = `${apiUrl}/api/products/${this.props.product.id}/bid`;
+    let url = apiUrl + "/api/products/" + this.props.product.id + "/bid";
     fetch(url, {
       mode: "cors",
       credentials: "include",
@@ -88,7 +98,9 @@ class OneProduct extends Component {
 
 
   render() {
+    
     return (
+      
       <div className="pt-5 mt-5">
         <h1>{this.state.products.name}</h1>
 
@@ -102,9 +114,16 @@ class OneProduct extends Component {
         <label>Bid </label>
         <input type="number" name="bid" onChange={this.handleChange} value = {this.state.formData.bid} ></input>
         <button onClick={() => {this.handleBidRequest()}} className="delete-btn">BID</button>
+        <img src={this.state.products.image}/>
+        {  getUser() !== null && getUser().id === this.props.product.owner_id ? (<React.Fragment>  <button onClick={() => this.props.changeActivePage('put', this.props.product.id)}>Edit</button>
+        <button onClick={() => { this.handleProductRequest()}} >Delete</button> </React.Fragment>) :( "")}
+        
+        
+
         {/* we need to put a textfeild, after we creating the bid table */}
       </div>
     );
-  }
+    }
+   
 }
 export default OneProduct;

@@ -49,8 +49,9 @@ class App extends Component {
   };
   render() {
     const { user, activePage } = this.state;
+    const bgBack = this.state.activePage === "sign-in" ? "loginBG" : "";
     return (
-      <div>
+      <div className={bgBack}>
         <Nav
           user={user}
           changeActivePage={this.changeActivePage}
@@ -59,7 +60,7 @@ class App extends Component {
 
         <div className="container">
           {activePage === "home" ? (
-            <Home changeActiveProduct={this.changeActiveProduct} />
+            <Home changeActiveProduct={this.changeActiveProduct} changeActivePage={this.changeActivePage} />
           ) : (
             ""
           )}
