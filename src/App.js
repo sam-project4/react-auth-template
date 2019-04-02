@@ -10,6 +10,7 @@ import Profile from "./components/Profile";
 import OneProduct from "./components/one_product";
 import Post from "./components/authForm.js/Post";
 import Put from "./components/authForm.js/Put";
+
 class App extends Component {
   state = {
     user: null,
@@ -79,13 +80,12 @@ class App extends Component {
           )}
           {activePage === "profile" ? <Profile /> : ""}
           {activePage === "one_product" ? (
-            <OneProduct product={this.state.activeProduct} />
+            <OneProduct product={this.state.activeProduct} changeActivePage={this.changeActivePage} />
           ) : (
             ""
           )}
           {activePage === "post" ? <Post changeActivePage={this.changeActivePage}/> : ""}
           {activePage === "put" ? <Put id={this.state.productId} changeActivePage={this.changeActivePage}/> : ""}
-         
         </div>
 
       </div>
