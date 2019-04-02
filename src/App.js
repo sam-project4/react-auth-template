@@ -88,6 +88,8 @@ class App extends Component {
           {activePage === "put" ? <Put id={this.state.productId} changeActivePage={this.changeActivePage}/> : ""}
         </div>
 
+       
+
       </div>
     );
   }
