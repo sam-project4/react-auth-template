@@ -4,10 +4,12 @@ import apiUrl from "../apiConfig";
 class Home extends Component {
   state = {
     products: []
+    
   };
 
-  componentDidMount() {
+  handelProductRequest = () => {
     let url = `${apiUrl}/api/products`;
+   
 
     console.log(url);
     fetch(url, {
@@ -18,6 +20,7 @@ class Home extends Component {
         "Content-type": "application/json"
       }
     })
+
       .then(res => res.json())
       .then(data => {
         if (data.status > 299) this.setState({ err: data.message });
@@ -26,7 +29,17 @@ class Home extends Component {
         }
       })
       .catch(e => console.log(e));
+
   }
+
+  componentDidMount() {
+
+this.handelProductRequest()
+      
+      }
+      
+  
+
 
   render() {
     return (
@@ -41,13 +54,21 @@ class Home extends Component {
             <p key={index+' name'}> Name : {product.name}</p> 
                   
             <p key={index+' description'}> description: {product.description}</p>
+
+           { product.Biddings[0] ? (
+            <p key={index+' Biddings'}> Biddings: { product.Biddings[0].bid_number}</p>) :""
+           }
             <hr key={index+' hr'}/>
+
+            
           </div>
         ))}
 
-       
+
+    
       </div>
     );
   }
 }
+
 export default Home;
