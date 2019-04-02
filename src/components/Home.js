@@ -41,7 +41,6 @@ class Home extends Component {
             <p key={index+' name'}> Name : {product.name}</p> 
                   
             <p key={index+' description'}> description: {product.description}</p>
-            <button key={index+' button'} onClick={() => this.props.changeActivePage('put', product.id)}>Edit</button>
             <hr key={index+' hr'}/>
           </div>
         ))}
