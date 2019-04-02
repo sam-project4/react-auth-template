@@ -1,11 +1,7 @@
 import React, { Component } from "react";
 import apiUrl from "../apiConfig";
-<<<<<<< HEAD
-import { getUser } from "../services/AuthService"
-=======
 import { getUser } from "../services/AuthService";
 
->>>>>>> styled login page and home page and hide buttons
 class OneProduct extends Component {
   state = {
     products: [],
@@ -37,13 +33,8 @@ class OneProduct extends Component {
       .catch(e => console.log(e));
   }
 
-<<<<<<< HEAD
   handleProductRequest = product => {
     console.log("product\n\n\n" , product)
-=======
-
-  handleProductRequest = product => {
->>>>>>> styled login page and home page and hide buttons
     let url = `${apiUrl}/api/products/${this.props.product.id}`;
 
     fetch(url, {
