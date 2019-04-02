@@ -1,6 +1,10 @@
 import React, { Component } from "react";
 import apiUrl from "../../apiConfig";
 import { setUser } from "../../services/AuthService";
+
+
+
+
 class SigninForm extends Component {
   state = {
     formData: {
@@ -47,8 +51,14 @@ class SigninForm extends Component {
 
   render() {
     return (
-      <div className="pt-5 mt-5">
+      <div className="Login-component">
+       <div className="pt-5 mt-5">
+       <div class="mainbox col-md-5 col-md-offset-3 col-sm-8 col-sm-offset-2 text-center margin">    
+       <div class="box">   
+
         <h1>PLEASE SIGININ</h1>
+        <br/>
+        <br/>
         {this.state.err ? (
           <div className="alert alert-danger"> {this.state.err} </div>
         ) : (
@@ -56,25 +66,38 @@ class SigninForm extends Component {
         )}
         <form onSubmit={this.handleSubmit}>
           <div className="form-group">
-            <label>Email </label>
+            
+        
             <input
               name="email"
               className="form-control"
+              placeholder="Email address"
               onChange={this.handleChange}
             />
-            <label>Password</label>
+
+            <br/>
+           
+            
             <input
               name="password"
               className="form-control"
               type="password"
+              placeholder="Password"
               onChange={this.handleChange}
             />
-          </div>
-
-          <button type="submit" className="btn btn-primary">
+           </div>
+          
+           <br/>
+        
+          <button type="submit" className="btn btn-primary col-md-12">
             Login
           </button>
+
         </form>
+        <br/>
+        </div>
+        </div>
+      </div>
       </div>
     );
   }

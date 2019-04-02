@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import { getUser } from "../../services/AuthService";
 import apiUrl from "../../apiConfig";
 
 class Put extends Component {
@@ -8,7 +8,7 @@ class Put extends Component {
             name: '',
             description: '',
             image: '',
-            owner_id:'',
+            owner_id:  getUser().id,
             close_bid:''
 
           }
@@ -83,13 +83,6 @@ class Put extends Component {
                     />
         
         
-                   <label>owner_id</label>
-                    <input
-                      name="owner_id"
-                      className="form-control"
-                      onChange={this.handleChange}
-                      type="number"
-                    />
         
                     <label>close_bid</label>
                     <input

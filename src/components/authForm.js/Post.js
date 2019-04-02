@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { getUser } from "../../services/AuthService";
 
 import apiUrl from "../../apiConfig";
 
@@ -8,7 +9,7 @@ class Post extends Component {
             name: '',
             description: '',
             image: '',
-            owner_id:'',
+            owner_id: getUser().id ,
             close_bid:''
 
           }
@@ -78,15 +79,6 @@ class Post extends Component {
               name="image"
               className="form-control"
               onChange={this.handleChange}
-            />
-
-
-           <label>owner_id</label>
-            <input
-              name="owner_id"
-              className="form-control"
-              onChange={this.handleChange}
-              type="number"
             />
 
             <label>close_bid</label>
