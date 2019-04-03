@@ -61,9 +61,9 @@ class Home extends Component {
                 <p key={index+' description'}> description: {product.description}</p>
 
                   { product.Biddings[0] ? (
-                    <p key={index+' Biddings'}> Biddings: { product.Biddings[0].bid_number}</p>) :""
+                    <p key={index+' Biddings'}> last bid: { product.Biddings[0].bid_number}</p>) :""
                   }
-                  <hr key={index+' hr'}/>
+                  
 
               
                   {/* <button key={index+' button'} onClick={() => this.props.changeActivePage('put', product.id)}>Edit</button> */}
