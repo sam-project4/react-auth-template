@@ -81,7 +81,7 @@ class Post extends Component {
               onChange={this.handleChange}
             />
 
-            <label>close_bid</label>
+            <label>start bid</label>
             <input
               name="close_bid"
               className="form-control"
