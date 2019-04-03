@@ -48,7 +48,10 @@ class SignupForm extends Component {
 
   render() {
     return (
-      <div className="pt-5 mt-5">
+      <div className="Login-component">
+       <div className="pt-5 mt-5">
+       <div class="mainbox col-md-5 col-md-offset-3 col-sm-8 col-sm-offset-2 text-center margin">    
+       <div class="box">   
         <h1>PLEASE SIGNUP</h1>
         {this.state.err ? (
           <div className="alert alert-warning"> {this.state.err} </div>
@@ -61,6 +64,7 @@ class SignupForm extends Component {
             <input
               name="email"
               className="form-control"
+              placeholder="Email address"
               onChange={this.handleChange}
             />
             <label>Password</label>
@@ -68,6 +72,7 @@ class SignupForm extends Component {
               name="password"
               className="form-control"
               type="password"
+              placeholder="password"
               onChange={this.handleChange}
             />
 
@@ -76,6 +81,7 @@ class SignupForm extends Component {
               name="password_confirmation"
               className="form-control"
               type="password"
+              placeholder="password confirmation"
               onChange={this.handleChange}
             />
           </div>
@@ -84,6 +90,9 @@ class SignupForm extends Component {
             Login
           </button>
         </form>
+      </div>
+      </div>
+      </div>
       </div>
     );
   }

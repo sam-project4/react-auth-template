@@ -181,7 +181,7 @@ class OneProduct extends Component {
         <button onClick={() =>   {this.handleBidRequest()} } className="delete-btn">BID</button> {this.state.counter} </React.Fragment>):( "you missed the bid")) :( " you can't bid ")}
         
         { this.props.product.Biddings[0] ? (
-                    <p > last-Bid: { this.props.product.Biddings[0].bid_number}</p>) :""
+                    <p > highest bid: { this.props.product.Biddings[0].bid_number}</p>) :""
                   }
 
         
