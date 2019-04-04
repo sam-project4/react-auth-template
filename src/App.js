@@ -40,7 +40,7 @@ class App extends Component {
   };
   onSignin = () => {
     this.setState({ user: getUser() });
-    this.changeActivePage("profile");
+    this.changeActivePage("home");
   };
   onSignout = () => {
     console.log("sigin out");
@@ -49,16 +49,28 @@ class App extends Component {
   };
   render() {
     const { user, activePage } = this.state;
-    const bgBack = this.state.activePage === "sign-in" ? "loginBG" : "";
+    let bgBack = "";
+    if (activePage === "sign-in" || activePage === "sign-up" || activePage === "change-password" ){
+      bgBack = "loginBG";
+    }
+    let containerClass;
+    if (activePage === "home") {
+      containerClass = ""
+    } else {
+      containerClass = "container"
+    }
+    if (activePage === "post" || activePage === "put" ){
+      bgBack = "AddPostBG";
+    }
     return (
-      <div className={bgBack}>
+      <div className={bgBack} >
         <Nav
           user={user}
           changeActivePage={this.changeActivePage}
           onSignout={this.onSignout}
         />
 
-        <div className="container">
+        <div className={containerClass}>
           {activePage === "home" ? (
             <Home changeActiveProduct={this.changeActiveProduct} changeActivePage={this.changeActivePage} />
           ) : (
@@ -69,7 +81,7 @@ class App extends Component {
           ) : (
             ""
           )}
-          {activePage === "sign-up" ? (
+          {activePage === "sign-up" ?  ( 
             <SignupForm onSignin={this.onSignin} />
           ) : (
             ""

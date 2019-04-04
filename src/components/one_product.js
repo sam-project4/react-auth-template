@@ -1,10 +1,7 @@
 import React, { Component } from "react";
 import apiUrl from "../apiConfig";
 import { getUser } from "../services/AuthService";
-import Swal from 'sweetalert2'
-
-
-
+import Swal from "sweetalert2";
 
 class OneProduct extends Component {
   state = {
@@ -12,8 +9,7 @@ class OneProduct extends Component {
     formData: {
       bid: 100
     },
-    counter: null 
-   
+    counter: null
   };
   componentDidMount() {
     let url = `${apiUrl}/api/product/${this.props.product.id}`;
@@ -33,14 +29,13 @@ class OneProduct extends Component {
         else {
           console.log(data.product);
           this.setState({ products: data.product });
-
         }
       })
       .catch(e => console.log(e));
   }
 
   handleProductRequest = product => {
-    console.log("product\n\n\n" , product)
+    console.log("product\n\n\n", product);
     let url = `${apiUrl}/api/products/${this.props.product.id}`;
 
     fetch(url, {
@@ -54,13 +49,11 @@ class OneProduct extends Component {
     })
       .then(res => res.json())
       .then(data => {
-        if (data.status > 299) 
-          this.setState({ err: data.message});
-          this.props.changeActivePage('home')
+        if (data.status > 299) this.setState({ err: data.message });
+        this.props.changeActivePage("home");
       })
       .catch(e => console.log(e));
   };
-
 
   handleBidRequest = product => {
     // console.log("product\n\n\n" , this.props.product.id , this.state.formData.bid , getUser().id)
@@ -77,23 +70,19 @@ class OneProduct extends Component {
     })
       .then(res => res.json())
       .then(data => {
-        if (data.status > 299) 
-       
-          this.setState({ err: data.message});
-         
-          Swal.fire({
-            position: 'center',
-            type: 'success',
-            title: 'You added bid successfully',
-            showConfirmButton: false,
-            timer: 2000
-          })
-          
-          
-          console.log(data)
+        if (data.status > 299) this.setState({ err: data.message });
 
+        Swal.fire({
+          position: "center",
+          type: "success",
+          title: "You added bid successfully",
+          showConfirmButton: false,
+          timer: 2000
+        });
 
-          // this.props.changeActivePage('home')
+        console.log(data);
+
+        // this.props.changeActivePage('home')
       })
       .catch(e => console.log(e));
   };
@@ -104,13 +93,13 @@ class OneProduct extends Component {
     this.setState({ formData });
   };
 
-  countDownDate =  () => {
+  countDownDate = () => {
     var date = new Date(this.props.product.createdAt);
 
     // add a day
     return date.setDate(date.getDate() + 1);
-  }
-  
+  };
+
   counterInterval = setInterval(() => {
     // Get todays date and time
     const now = new Date().getTime();
@@ -133,7 +122,7 @@ class OneProduct extends Component {
     // If the count down is over, write some text
     if (distance < 0) {
       clearInterval(this.counterInterval);
-      counter = null ;
+      counter = null;
 
       this.setState({ counter });
     }
@@ -142,53 +131,119 @@ class OneProduct extends Component {
   componentWillUnmount() {
     clearInterval(this.counterInterval);
   }
-
-
   render() {
-
-
-  
-    
-    console.log(this.props.product)
+    console.log(this.props.product);
     return (
+      <div className="one111" className="pt-5 mt-5">
+        <div className="btns-one-product">
+          {getUser() !== null &&
+          getUser().id === this.props.product.owner_id ? (
+            <React.Fragment>
+              {" "}
+              
+              <button
+                class="btn btn-secondary"
+                onClick={() =>
+                  this.props.changeActivePage("put", this.props.product.id)
+                }
+              >
+                Edit
+              </button>{" "}
+              &ensp;
+              <button
+                class="btn btn-warning"
+                // className="btn-del-one-product"
+                onClick={() => {
+                  this.handleProductRequest();
+                }}
+              >
+                Delete
+              </button>{" "}
+              
+            </React.Fragment>
+          ) : (
+            ""
+          )}
+        </div>
 
+        {/*Image */}
+        <img className="image-one-product" src={this.state.products.image} />
 
-      
-      
-      <div className="pt-5 mt-5">
-        <h1>{this.state.products.name}</h1>
-        
-        <h2>Description</h2>
-        <p>{this.state.products.description}</p>
-        <h2>Image</h2>
-        <p>{this.state.products.image}</p>
-        <h2>Start bid</h2>
-        <p>{this.state.products.close_bid} SR</p>
+        <div class="clearfix">
+          <div className="box1">
+            {/* Name */}
+            <h1 className="name-one-product">{this.state.products.name}</h1>
+            {/* starting bid */}
+            <h3 className="HSB-one-product">Start Bid : </h3> &ensp;
+            <p className="P-one-product">{this.state.products.close_bid} SR</p>
+            <br />
+            <br />
+            {/* text feild bid and its message */}
+            <div className="btn-bid-one-product">
+              {getUser() && getUser().id !== this.props.product.owner_id ? (
+                this.state.counter ? (
+                  <React.Fragment>
+                    {" "}
+                    <p className="counter-one-product">
+                      {this.state.counter}
+                    </p>{" "}
+                    <p className="until">Until The Ends</p>
+                    <br />
+                    <h6 className="bidNow-one-product">Bid : </h6> &ensp;
+                    <input
+                      className="input-bid-one-product"
+                      type="number"
+                      name="bid"
+                      onChange={this.handleChange}
+                      value={this.state.formData.bid}
+                    />{" "}
+                    &ensp;
+                    {/* <br /> */}
+                    <button
+                      onClick={() => {
+                        this.handleBidRequest();
+                      }}
+                      class="btn btn-primary"
+                    >
+                      BID
+                    </button>{" "}
+                  </React.Fragment>
+                ) : (
+                  <div>
+                    <img
+                      className="img-info"
+                      src="https://vignette.wikia.nocookie.net/bestbrute/images/a/a1/Info_icon_blue_3d.svg/revision/latest?cb=20090524024510"
+                    />
+                    <p class="text-info">You Missed The Bid</p>{" "}
+                  </div>
+                )
+              ) : (
+                <div>
+                  <img
+                    className="img-info"
+                    src="https://vignette.wikia.nocookie.net/bestbrute/images/a/a1/Info_icon_blue_3d.svg/revision/latest?cb=20090524024510"
+                  />
+                  <p class="text-info"> You Can not Bid </p>
+                </div>
+              )}
+            </div>{" "}
+            <br />
+            {this.props.product.Biddings[0] ? (
+              <h6> Highest Bid: {this.props.product.Biddings[0].bid_number}</h6>
+            ) : (
+              ""
+            )}
+          </div>
 
-        
-        <img src={this.state.products.image}/>
-        {  getUser() !== null && getUser().id === this.props.product.owner_id ? (<React.Fragment>  <button onClick={() => this.props.changeActivePage('put', this.props.product.id)}>Edit</button>
-        <button onClick={() => { this.handleProductRequest()}} >Delete</button> </React.Fragment>) :( "")}
-
-        {  getUser() && getUser().id !== this.props.product.owner_id  ?   (
-          this.state.counter ? (
-        <React.Fragment>  <
-          
-          label>Bid </label>
-        <input type="number" name="bid" onChange={this.handleChange} value = {this.state.formData.bid} ></input>
-       
-       
-        <button onClick={() =>   {this.handleBidRequest()} } className="delete-btn">BID</button> {this.state.counter} </React.Fragment>):( "you missed the bid")) :( " you can't bid ")}
-        
-        { this.props.product.Biddings[0] ? (
-                    <p > highest bid: { this.props.product.Biddings[0].bid_number}</p>) :""
-                  }
-
-        
-        {/* we need to put a textfeild, after we creating the bid table */}
+          <div className="box1">
+            {/* Description */}
+            <p className="desc-one-product">
+              {this.state.products.description}
+            </p>
+          </div>
+        </div>
       </div>
     );
-    }
-   
+  }
 }
 export default OneProduct;
