@@ -19,8 +19,8 @@ class Put extends Component {
             let url = `${apiUrl}/api/product/${this.props.id}`;
         
             fetch(url, {
-              mode: "cors",
-              credentials: "include",
+              // mode: "cors",
+              // credentials: "include",
               method: "PUT",
               headers: {
                 "Content-type": "application/json"

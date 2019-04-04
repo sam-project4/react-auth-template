@@ -20,8 +20,8 @@ class OneProduct extends Component {
 
     console.log(url);
     fetch(url, {
-      mode: "cors",
-      credentials: "include",
+      // mode: "cors",
+      // credentials: "include",
       method: "GET",
       headers: {
         "Content-type": "application/json"
@@ -44,8 +44,8 @@ class OneProduct extends Component {
     let url = `${apiUrl}/api/products/${this.props.product.id}`;
 
     fetch(url, {
-      mode: "cors",
-      credentials: "include",
+      // mode: "cors",
+      // credentials: "include",
       method: "DELETE",
       headers: {
         "Content-type": "application/json"
@@ -67,8 +67,8 @@ class OneProduct extends Component {
     // let url = `${apiUrl}/api/products/${this.props.product.id}/bid`;
     let url = apiUrl + "/api/products/" + this.props.product.id + "/bid";
     fetch(url, {
-      mode: "cors",
-      credentials: "include",
+      // mode: "cors",
+      // credentials: "include",
       method: "POST",
       headers: {
         "Content-type": "application/json"

@@ -19,8 +19,8 @@ class Post extends Component {
     let url = `${apiUrl}/api/products`;
 
     fetch(url, {
-      mode: "cors",
-      credentials: "include",
+      // mode: "cors",
+      // credentials: "include",
       method: "POST",
       headers: {
         "Content-type": "application/json"

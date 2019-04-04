@@ -15,8 +15,8 @@ class SignupForm extends Component {
     let url = `${apiUrl}/sign-up`;
 
     fetch(url, {
-      mode: "cors",
-      credentials: "include",
+      // mode: "cors",
+      // credentials: "include",
       method: "POST",
       headers: {
         "Content-type": "application/json"

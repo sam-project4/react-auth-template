@@ -18,8 +18,8 @@ class Home extends Component {
 
     console.log(url);
     fetch(url, {
-      mode: "cors",
-      credentials: "include",
+      // mode: "cors",
+      // credentials: "include",
       method: "GET",
       headers: {
         "Content-type": "application/json"
