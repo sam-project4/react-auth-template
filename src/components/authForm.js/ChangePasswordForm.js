@@ -44,31 +44,38 @@ class ChangePasswordForm extends Component {
   render() {
     return (
       <div className="pt-5 mt-5">
+      <div class="mainbox col-md-5 col-md-offset-3 col-sm-8 col-sm-offset-2 text-center margin">    
+      <div class="box">   
         <h1>Change Password</h1>
 
         <form onSubmit={this.handleSubmit}>
           <div className="form-group">
-            <label>Old Password</label>
+            <br/>
             <input
               name="old"
               className="form-control"
               type="password"
+              placeholder="old Password"
               onChange={this.handleChange}
             />
-            <label>new Password </label>
+            <br/>
             <input
               name="new"
               type="password"
               className="form-control"
+              placeholder="new Password"
               onChange={this.handleChange}
             />
           </div>
-
-          <button type="submit" className="btn btn-primary">
-            Login
+            <br/>
+          <button type="submit" className="btn btn-primary col-md-12">
+            Submit
           </button>
         </form>
       </div>
+      </div>
+      </div>
+      
     );
   }
 }

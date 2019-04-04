@@ -42,7 +42,7 @@ const alwaysOptions = changeActivePage => (
 
 const Nav = ({ user, changeActivePage, onSignout }) => (
   <nav className="navbar navbar-expand-lg navbar-light bg-light">
-    <div className="navbar-brand">Navbar</div>
+    <div className="navbar-brand"><img className="width_logo" src="https://f.top4top.net/p_1188oyaa71.png"/></div>
     <button
       className="navbar-toggler"
       type="button"
