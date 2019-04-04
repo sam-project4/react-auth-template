@@ -1,51 +1,35 @@
-[![General Assembly Logo](https://camo.githubusercontent.com/1a91b05b8f4d44b5bbfb83abac2b0996d8e26c92/687474703a2f2f692e696d6775722e636f6d2f6b6538555354712e706e67)](https://generalassemb.ly/education/web-development-immersive)
+# The Sale Corner
 
-# React Template
+Is a simple auction site on the old pieces, where the user can upload a picture of the old piece and put a certain price wants to start the auction, and other users can enter and see the picture of the piece with an explanation of it and the price at which the auction begins. He can also view the highest bid price with the time left to end the auction.
 
-A template for starting projects with `react`. Includes authentication.
+## ScreenShot of Home Page
 
-## Dependencies
+![alt text](http://url/to/img.png)
 
-Install with `npm install`.
+## Demo for the website
 
--
+![alt text](http://url/to/img.png)
 
-## Installation
+## Usage
 
-### Download Template:
+This project was completed by using:
 
-1.  [Download](../../archive/master.zip) this template.
-1.  Unzip and rename the template directory (`unzip ~/Downloads/react-template-master.zip`)
-1.  Move into the new project and `git init`.
+- Express and Node.js as backend server.
+- React as frontend
+- Bootstrap
 
-### Customize Template:
+## Authors
 
-1.  Empty [`README.md`](README.md) and fill with your own content.
+- Mohammed Jameel [GitHub Page](https://github.com/Mo7amed178/)
+- Salem Alshehri [GitHub Page](https://github.com/Salem8809/)
+- Abdullah Alkames [GitHub Page](https://github.com/ab4ullah/)
 
-### Setup Environment:
+## Acknowledgments
 
-1.  Install dependencies with `npm install`.
-1.  `git add` and `git commit` your changes.
+- Michael Finneran
+- Usman Bashir
+- Ghadeer Alkhathlan
 
-### Run your server!
+## Next Step
 
-1. Run the API server with `npm start`.
-
-## Structure
-
-User authentication is built-in.
-
-## Tasks
-
-Developers should run these often!
-
-- `npm start`
-- `npm run deploy`
-
-### Authentication
-
-## [License](LICENSE)
-
-1.  All content is licensed under a CC­BY­NC­SA 4.0 license.
-1.  All software code is licensed under GNU GPLv3. For commercial use or
-    alternative licensing, please contact legal@ga.co.
+The next step for this project is to add private messages between users to enable them to communicate among them, add a feature to pay for security through the site, and add improvements to the design.
