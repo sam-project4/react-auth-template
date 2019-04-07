@@ -22,6 +22,11 @@ const background = {
 }
 
 
+const hieght = {
+  height: '60%'
+  
+
+}
 
 
 class Home extends Component {
@@ -95,7 +100,7 @@ class Home extends Component {
           
             <div class="col-sm p-2 animated slideInUp">
               <div class="card mt-3"  style={pStyle} onClick={() => this.props.changeActiveProduct(product)}>
-                <img src={product.image} class="card-img-top" alt="..."/>
+                <img style = {hieght} src={product.image} class="card-img-top" alt="..."/>
                 <div class="card-body">
                   <p key={index+' name'}  > <b> {product.name} </b></p> 
                       
