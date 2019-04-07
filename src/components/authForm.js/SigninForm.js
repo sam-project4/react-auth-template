@@ -19,8 +19,8 @@ class SigninForm extends Component {
 
     console.log(url);
     fetch(url, {
-      mode: "cors",
-      credentials: "include",
+      // mode: "cors",
+      // credentials: "include",
       method: "POST",
       headers: {
         "Content-type": "application/json"
@@ -30,6 +30,7 @@ class SigninForm extends Component {
       .then(res => res.json())
       .then(data => {
         if (data.status > 200) this.setState({ err: data.message });
+        
         else {
           this.setState({ err: null });
           setUser(data);

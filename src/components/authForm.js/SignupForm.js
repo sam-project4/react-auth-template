@@ -15,8 +15,8 @@ class SignupForm extends Component {
     let url = `${apiUrl}/sign-up`;
 
     fetch(url, {
-      mode: "cors",
-      credentials: "include",
+      // mode: "cors",
+      // credentials: "include",
       method: "POST",
       headers: {
         "Content-type": "application/json"
@@ -59,35 +59,37 @@ class SignupForm extends Component {
           ""
         )}
         <form onSubmit={this.handleSubmit}>
+        <br/>  <br/>
           <div className="form-group">
-            <label>email </label>
+            
             <input
               name="email"
               className="form-control"
               placeholder="Email address"
               onChange={this.handleChange}
             />
-            <label>Password</label>
+            <br/>
             <input
               name="password"
               className="form-control"
               type="password"
-              placeholder="password"
+              placeholder="Password"
               onChange={this.handleChange}
             />
-
-            <label>Password Confirmation</label>
+           <br/>
+            
             <input
               name="password_confirmation"
               className="form-control"
               type="password"
-              placeholder="password confirmation"
+              placeholder="Password confirmation"
               onChange={this.handleChange}
             />
           </div>
+          <br/>
 
-          <button type="submit" className="btn btn-primary">
-            Login
+          <button type="submit" className="btn btn-primary col-md-12">
+             Sign Up
           </button>
         </form>
       </div>

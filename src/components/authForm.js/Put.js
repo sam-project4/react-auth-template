@@ -2,6 +2,14 @@ import React, { Component } from "react";
 import { getUser } from "../../services/AuthService";
 import apiUrl from "../../apiConfig";
 
+
+const test = {
+  background: 'purple',
+  color:'white',
+  
+  
+}
+
 class Put extends Component {
     state = {
         formData: {
@@ -19,8 +27,8 @@ class Put extends Component {
             let url = `${apiUrl}/api/product/${this.props.id}`;
         
             fetch(url, {
-              mode: "cors",
-              credentials: "include",
+              // mode: "cors",
+              // credentials: "include",
               method: "PUT",
               headers: {
                 "Content-type": "application/json"
@@ -57,7 +65,11 @@ class Put extends Component {
           render() {
             return (
               <div className="pt-5 mt-5">
-                <h1>Update</h1>
+                <div className="border_addPost">
+                  <h1 className="bg_title">Update your item</h1>
+                  <br/>
+                  <div className="padding_AddPost">
+                
                 
                 <form onSubmit={this.handleSubmit}>
                   <div className="form-group">
@@ -65,20 +77,23 @@ class Put extends Component {
                     <label>Name </label>
                     <input
                       name="name"
-                      className="form-control"
+                      className="form-control margin-top"
+                      placeholder= " type item name"
                       onChange={this.handleChange}
                     />
                     <label>description</label>
                     <input
                       name="description"
-                      className="form-control"
+                      className="form-control margin-top"
+                      placeholder= " type item description"
                       onChange={this.handleChange}
                     />
         
                     <label>image</label>
                     <input
                       name="image"
-                      className="form-control"
+                      className="form-control margin-top"
+                      placeholder= "type url example : https:image.com/old_pen"
                       onChange={this.handleChange}
                     />
         
@@ -87,16 +102,19 @@ class Put extends Component {
                     <label>close_bid</label>
                     <input
                       name="close_bid"
-                      className="form-control"
+                      className="form-control margin-top"
                       onChange={this.handleChange}
+                      placeholder= " example : 100 "
                       type="number"
                     />
                   </div>
-        
-                  <button type="submit" className="btn btn-primary">
+                  <br/>
+                  <button type="submit" className="btn btn-primary col-12" style={test}>
                     submit
                   </button>
                 </form>
+              </div>
+              </div>
               </div>
             );
           }
