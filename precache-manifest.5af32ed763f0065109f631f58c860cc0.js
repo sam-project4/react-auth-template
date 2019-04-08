@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "cc62489ce77e664b6df7",
+    "revision": "3dde8170cbcf9136a9af",
     "url": "/react-auth-template/static/css/main.e5ac14b4.chunk.css"
   },
   {
-    "revision": "cc62489ce77e664b6df7",
-    "url": "/react-auth-template/static/js/main.ddd89ba6.chunk.js"
+    "revision": "3dde8170cbcf9136a9af",
+    "url": "/react-auth-template/static/js/main.e17a487a.chunk.js"
   },
   {
     "revision": "3345b56d7ed7a0ca6151",
@@ -20,7 +20,7 @@ self.__precacheManifest = [
     "url": "/react-auth-template/static/js/2.c851b331.chunk.js"
   },
   {
-    "revision": "91953df69b8dbf3575d728454a7d164b",
+    "revision": "92045e632694e58f8e4c0e38a2d812d4",
     "url": "/react-auth-template/index.html"
   }
 ];
